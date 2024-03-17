@@ -30,14 +30,16 @@
         for(const radio of playerCountRadios) {
             if (radio.checked) {
                 if (radio.id == "Two") {
-                    console.log("Two Players");
-                    Cookies["GameVar"]["PlayerCount"] = "two";
-                    Cookies.Append("GameVar", "default");
+                    document.cookie = "PlayerCount=Two; ";
+                    const CookieValue = document.cookie.split(';').find(cookie => cookie.trim().startsWith('PlayerCount=')).split('=')[1];
+                    console.log(`Value of PlayerCount: ${CookieValue}`);
                     return;
                 }
             }
         }
-        console.log("One Player");
-        Cookies["GameVar"]["PlayerCount"] = "one";
+        document.cookie = "PlayerCount=One; ";
+        var CookieValue = document.cookie.split(';').find(cookie => cookie.trim().startsWith('PlayerCount=')).split('=')[1];
+        console.log(`Value of PlayerCount: ${CookieValue}`);
+        return;
     }
 </script>
