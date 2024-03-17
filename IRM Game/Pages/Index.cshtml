@@ -31,12 +31,13 @@
             if (radio.checked) {
                 if (radio.id == "Two") {
                     console.log("Two Players");
-                    Response.Cookies["GameVar"]["PlayerCount"] = "two";
+                    Cookies["GameVar"]["PlayerCount"] = "two";
+                    Cookies.Append("GameVar", "default");
                     return;
                 }
             }
         }
         console.log("One Player");
-        Response.Cookies["GameVar"]["PlayerCount"] = "one";
+        Cookies["GameVar"]["PlayerCount"] = "one";
     }
 </script>
