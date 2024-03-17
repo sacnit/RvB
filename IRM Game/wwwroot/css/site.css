@@ -20,3 +20,17 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.playerSelect input[type="radio"] {
+    display: none;
+}
+
+    .playerSelect input[type="radio"] + label {
+        background-color: red;
+        color: white;
+    }
+
+.playerSelect input[type="radio"]:checked + label{
+    background-color: green;
+    color: black;
+}

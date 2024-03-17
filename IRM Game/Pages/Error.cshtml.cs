@@ -24,5 +24,4 @@ namespace IRM_Game.Pages
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
         }
     }
-
 }

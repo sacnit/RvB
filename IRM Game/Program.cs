@@ -1,3 +1,5 @@
+using IRM_Game.Pages;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

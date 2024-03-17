@@ -1,10 +1,42 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Let's get started!";
 }
-
+<head>
+    <link rel="stylesheet" href="/css/site.css"/>
+    <style>
+        .text-center {
+            all: inherit;
+            height: 80vh;
+        }
+    </style>
+</head>
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <div class="playerSelect">
+        <p>How many players?</p>
+        <input type="radio" id="One" name="PlayerCount" value="One" checked>
+        <label for="One">One player</label>
+        <input type="radio" id="Two" name="PlayerCount" value="Two" checked>
+        <label for="Two">Two players</label>
+    </div>
+    <input type="button" onclick="StartGame()" name="StartGame" value="Start Game"/>
 </div>
+
+<script>
+    function StartGame(){
+        const playerCountRadios = document.querySelectorAll('input[name="PlayerCount"]');
+        for(const radio of playerCountRadios) {
+            if (radio.checked) {
+                if (radio.id == "Two") {
+                    console.log("Two Players");
+                    Response.Cookies["GameVar"]["PlayerCount"] = "two";
+                    return;
+                }
+            }
+        }
+        console.log("One Player");
+        Response.Cookies["GameVar"]["PlayerCount"] = "one";
+    }
+</script>
